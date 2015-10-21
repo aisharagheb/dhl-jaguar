@@ -1,12 +1,12 @@
 four51.app.factory('XLATService', ['$interpolate', function($interpolate) {
 
-    var currentLanguage = "en-US";
-    var currentCulture = "en-US";
+    var currentLanguage = "es-MX";
+    var currentCulture = "es-MX";
     var tables = $.extend(true, {}, XLATTables);
 
     var _getCurrentLanguage = function(userLanguage, userCulture) {
-        currentLanguage =  userLanguage ? userLanguage : currentLanguage;
-        currentCulture =  userCulture ? userCulture : currentCulture;
+        currentLanguage =  "es-MX";
+        currentCulture =  "es-MX";
         return [currentCulture, tables["Currency"][currentCulture], tables["Date"][currentCulture]];
     };
 

@@ -5,6 +5,18 @@ function ($scope,  $location, OrderSearchCriteria, OrderSearch) {
 		pageSize: 10
 	};
 
+	$scope.getOrderText = function(ordertext) {
+		if (ordertext == 'Open') {
+			return 'In Process';
+		}
+		else if (ordertext == 'Completed') {
+			return 'Shipped';
+		}
+		else {
+			return ordertext;
+		}
+	}
+
 	OrderSearchCriteria.query(function(data) {
 		$scope.OrderSearchCriteria = data;
 		$scope.hasStandardTypes = _hasType(data, 'Standard');

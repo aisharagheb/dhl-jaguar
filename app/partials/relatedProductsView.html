@@ -1,6 +1,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">{{('Related' | r) + ' ' +  ('Products' | r) | xlat}}</h3>
+        <h3 ng-show="relatedgroupid == 's2vB3CTAijL-syCOawfUWMQ-e-e'" class="panel-title">{{('Alternative' | r) + ' ' +  ('Products' | r) | xlat}}</h3>
+        <h3 ng-show="relatedgroupid != 's2vB3CTAijL-syCOawfUWMQ-e-e'" class="panel-title">{{('Product' | r) + ' ' +  ('Substitutions' | r) | xlat}}</h3>
     </div>
     <div class="panel-product-list">
         <nav class="nav">

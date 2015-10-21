@@ -129,8 +129,8 @@
     </div>
     <div class="panel panel-default" ng-show="orders">
         <div class="panel-heading">
-            <h3 class="panel-title">
-                <span class="text-info" ng-show="orderSearchStat.Type">
+            <h3 class="panel-title" >
+                <span class="text-info" ng-show="orderSearchStat.Type" style="color: #fff;">
                     {{(orderSearchStat.Type) + ' ' + ('Orders' | rl) | xlat}}:
                 </span>
                 {{orderSearchStat.DisplayName | r | xlat}}
@@ -164,7 +164,7 @@
                 </div>
                 <div class="col-sm-2">
                      <span class="visible-xs panel-table-heading-xs text-info">{{'Status' | r | xlat}}</span>
-                    {{order.StatusText}}
+                    {{getOrderText(order.StatusText)}}
                 </div>
                 <div class="col-sm-2">
                     <span class="visible-xs panel-table-heading-xs text-info">{{'Submitted' | r | xlat}}</span>

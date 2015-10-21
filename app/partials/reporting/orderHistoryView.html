@@ -23,9 +23,15 @@
                         <orderhistorysummary ng-if="!(user.Permissions.contains('HidePricing'))"></orderhistorysummary>
                     </div>
                     <div class="panel-footer" ng-if="order.FromUserID == user.ID && order.Status != 'Unsubmitted'">
-                        <button ng-disabled="currentOrder" class="btn btn-primary pull-right" ng-click="repeatOrder()">
+                        <button class="btn btn-primary pull-right" ng-click="repeatOrder()">
                             <i ng-show="currentOrder" class="fa fa-warning"></i>
                             {{('Repeat' | r) + ' ' + ('Order' | r) | xlat}}
+                        </button>
+                    </div>
+                    <div class="panel-footer" ng-if="order.FromUserID == user.ID && order.Status != 'Unsubmitted'">
+                        <button class="btn btn-primary pull-right" ng-click="repeatOrder()">
+                            <i ng-show="currentOrder" class="fa fa-warning"></i>
+                            {{('Cancel' | r) + ' ' + ('Order' | r) | xlat}}
                         </button>
                     </div>
                 </div>
@@ -40,19 +46,19 @@
                 </div>
                 <lineitemhistorygrid />
 
-				<div class="panel-body" ng-show="shipments" ng-repeat="s in shipments">
-					<b>Shipper:</b> {{s.Shipper}}<br/>
-					<b>Tracking number:</b> {{s.TrackingNumber}}<br/>
-					<b>URL:</b> <a href="{{s.TrackingURL}}">{{s.TrackingURL}}</a><br>
-					<b>Items: </b> <ul><li ng-repeat="item in s.Items">{{item.ProductID}} - {{item.QuantityShipped}}</li></ul>
-					<hr>
-				</div>
+                <div class="panel-body" ng-show="shipments" ng-repeat="s in shipments">
+                    <b>Shipper:</b> {{s.Shipper}}<br/>
+                    <b>Tracking number:</b> {{s.TrackingNumber}}<br/>
+                    <b>URL:</b> <a href="{{s.TrackingURL}}">{{s.TrackingURL}}</a><br>
+                    <b>Items: </b> <ul><li ng-repeat="item in s.Items">{{item.ProductID}} - {{item.QuantityShipped}}</li></ul>
+                    <hr>
+                </div>
 
 
 
                 <div class="panel-footer" ng-if="order.FromUserID == user.ID && order.Status != 'Unsubmitted' && user.Type !='TempCustomer'">
-                   <loadingindicator ng-show="displayLoadingIndicator" />
-                   <div class="form-group view-form-icon">
+                    <loadingindicator ng-show="displayLoadingIndicator" />
+                    <div class="form-group view-form-icon">
                         <div class="input-group">
                             <input type="text" ng-model="order.FavoriteName" placeholder="{{('Favorite' | r) + ' ' + ('Name' | r) | xlat}}" class="form-control" autocomplete="off" />
                             <i class="fa fa-star"></i>
